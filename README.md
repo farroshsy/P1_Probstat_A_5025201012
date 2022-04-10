@@ -335,29 +335,69 @@ data generate randomnya dalam bentuk grafik. Petunjuk(gunakan fungsi plot()).
         - X2 = 6
  
  
-    ```R
-    # 6a
- 
-    ```
-       
+      ```R
+      # 6a
+        x1 = 0
+        x2 = 0
+        n = 100
+        m = 50
+        sd = 8
+
+        par(mfrow = c(2,1))
+        data = rnorm(n=n, mean=m, sd=sd)
+        z_array = c()
+
+        for (d in data)
+        {
+          z = (d - m)/sd
+          z_array = append(z_array, z)
+
+          if (d < m)
+          {
+            x1 = x1 + 1
+          }
+          else
+          {
+            x2 = x2 + 1
+          }
+        }
+
+        result = plot(z_array, type='l')
+        paste("Rata-rata adalah", m)
+        paste("x1 adalah", x1)
+        paste("x2 adalah", x2)
+
+        ```
+   - - Hasil 6a yaitu sebagai berikut:
+      <img width="1680" alt="Screen Shot 2022-04-10 at 16 01 37" src="https://user-images.githubusercontent.com/86004023/162610872-77cced9f-2841-465a-8e31-97c9342e8a80.png">
+
+
   - B. Generate Histogram dari Distribusi Normal dengan breaks 50 dan format penamaan:
   - **NRP_Nama_Probstat_{Nama Kelas}_DNhistogram**
   - Contoh:
     -  312312312_Rola_Probstat_A_DNhistogram
   
       ```R
-      
       # 6b
+      h = hist(rnorm(100, 50, 8), breaks = 50, main="5025201012_Farros Hilmi Syafei_Probstat_A_DNhistogram")
  
        ```
+       - Hasil 6b yaitu sebagai berikut:
+       <img width="1680" alt="Screen Shot 2022-04-10 at 16 04 57" src="https://user-images.githubusercontent.com/86004023/162610941-96afe2f7-99e1-4c52-8f88-1d7db93132d3.png">
+
        
   - C. Nilai Varian (σ2) dari hasil generate random nilai Distribusi Normal.
 
        ```R
-      # 5c
+      # 6c
+      varian = sd * sd
+      paste("varian adalah", varian)
  
        ```
-       
+       - Hasil 6c yaitu sebagai berikut:
+       <img width="1680" alt="Screen Shot 2022-04-10 at 16 06 19" src="https://user-images.githubusercontent.com/86004023/162611004-a8bc3730-c238-4294-905a-ebb0f2872152.png">
+
  <br />
  
-# Referensi
+# Referensi :
+  - 
