@@ -1,4 +1,4 @@
-#6a
+# Poin 6a
 x1 = 0
 x2 = 0
 n = 100
@@ -24,16 +24,14 @@ for (d in data)
   }
 }
 
-
 result = plot(z_array, type='l')
-
 paste("Rata-rata adalah", m)
 paste("x1 adalah", x1)
 paste("x2 adalah", x2)
 
-#6b
-h = hist(rnorm(100, 50, 8), breaks = 50, main="5025201223_Muhammad Ismail_B_DNhistogram")
+# Poin 6b
+h = hist(rnorm(100, 50, 8), breaks = 50, main="5025201012_Farros Hilmi Syafei_Probstat_A_DNhistogram")
 
-#6c
-varian = sd*sd
+# Poin 6c
+varian = sd * sd
 paste("varian adalah", varian)
