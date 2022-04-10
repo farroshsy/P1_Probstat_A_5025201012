@@ -170,24 +170,24 @@ Praktikum Probabilitas dan Statistik 2022 Modul 1 (Distribusi Probabilitas)
   - B.  simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama
 setahun (n = 365)
     
-           ```R
-          # 3b
-          n = 365
-          rata_rata_bayi_lahir = 4.5
-          set.seed(2)
-          babies <- data.frame('data' = rpois(n, rata_rata_bayi_lahir))
+             ```R
+            # 3b
+            n = 365
+            rata_rata_bayi_lahir = 4.5
+            set.seed(2)
+            babies <- data.frame('data' = rpois(n, rata_rata_bayi_lahir))
 
-            babies %>% ggplot() +
-            geom_histogram(aes(x = data, y = stat(count / sum(count)), fill = data == 6), binwidth = 1, color =   'black',) +
-           scale_fill_manual(values = c("#6BCB77", "#FF6B6B")) +
-           scale_x_continuous(breaks = 0:10) +
-           labs(x = 'Jumlah bayi lahir per periode', y = 'Proporsi', title = 'Simulasi kelahiran selama setahun (n = 365)') +
-            theme_bw()
+              babies %>% ggplot() +
+              geom_histogram(aes(x = data, y = stat(count / sum(count)), fill = data == 6), binwidth = 1, color =   'black',) +
+             scale_fill_manual(values = c("#6BCB77", "#FF6B6B")) +
+             scale_x_continuous(breaks = 0:10) +
+             labs(x = 'Jumlah bayi lahir per periode', y = 'Proporsi', title = 'Simulasi kelahiran selama setahun (n = 365)') +
+              theme_bw()
 
-             ```
+               ```
            
             
-   -  - Hasil 3b yaitu sebagai berikut:
+   - Hasil 3b yaitu sebagai berikut:
      <img width="1680" alt="Screen Shot 2022-04-10 at 15 30 36" src="https://user-images.githubusercontent.com/86004023/162609802-c19cc71f-d757-4e64-98ac-adfdf9d57b6c.png">
 
 
@@ -224,22 +224,39 @@ setahun (n = 365)
  
        ```R
      # 4a
+     x = 2
+     v = 10
+     dchisq(x, v)
  
        ```
-       
+       - Hasil 4a yaitu sebagai berikut:
+       <img width="1680" alt="Screen Shot 2022-04-10 at 15 42 49" src="https://user-images.githubusercontent.com/86004023/162610148-c9ff1c19-f454-4514-8b47-e9853ce0d8f4.png">
+
   - B. Histogram dari Distribusi Chi-Square dengan 100 data random.
   
       ```R
      # 4b
+     random_data = 100
+     hist(rchisq(random_data, v))
  
        ```
+       - Hasil 4b yaitu sebagai berikut:
+       <img width="1680" alt="Screen Shot 2022-04-10 at 15 44 07" src="https://user-images.githubusercontent.com/86004023/162610178-65813cad-ba94-4a8e-95b0-968fef1e2468.png">
+
        
   - C. Nilai Rataan (μ) dan Varian (σ2) dari Distribusi Chi-Square.
 
        ```R
       # 4c
- 
+        d = 10
+        rataan <- d
+        rataan
+        varian <- 2 * d
+        varian
        ```
+       - Hasil 4c yaitu sebagai berikut:
+       <img width="1680" alt="Screen Shot 2022-04-10 at 15 45 07" src="https://user-images.githubusercontent.com/86004023/162610233-ae64d304-6354-4303-9cc6-4891465d7fd0.png">
+
        
  <br />
  
