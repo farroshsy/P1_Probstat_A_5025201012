@@ -237,3 +237,5 @@ data generate randomnya dalam bentuk grafik. Petunjuk(gunakan fungsi plot()).
        ```
        
  <br />
+ 
+# Referensi
