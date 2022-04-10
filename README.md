@@ -268,15 +268,36 @@ setahun (n = 365)
  
        ```R
      # 5a
+     lambda = 3
+     set.seed(1)
+     rexp(lambda)
  
        ```
-       
+       - Hasil 5a yaitu sebagai berikut:
+      <img width="1680" alt="Screen Shot 2022-04-10 at 15 52 22" src="https://user-images.githubusercontent.com/86004023/162610505-8f67d346-b58e-483d-bfd2-0eb6f76c7317.png">
+
   - B. Histogram dari Distribusi Exponensial untuk 10, 100, 1000 dan 10000 bilangan random
   
       ```R
      # 5b
+     par(mfrow = c(2,2))
+
+      set.seed(1)
+      hist(rexp(10))
+
+      set.seed(1)
+      hist(rexp(100))
+
+      set.seed(1)
+      hist(rexp(1000))
+
+      set.seed(1)
+      hist(rexp(10000))
  
        ```
+       - Hasil 5b yaitu sebagai berikut:
+       <img width="1680" alt="Screen Shot 2022-04-10 at 15 55 06" src="https://user-images.githubusercontent.com/86004023/162610623-0bd3066c-da18-456c-aa0b-ef82fc467f62.png">
+
        
   - C. Nilai Rataan (μ) dan Varian (σ2) dari Distribusi Exponensial untuk n = 100 dan λ = 3
     - Petunjuk: 
@@ -285,8 +306,18 @@ setahun (n = 365)
 
     ```R
     # 5c
+      lambda = 3
+
+      rataan <- 1 / lambda
+      rataan
+
+      varian <- 1 / (lambda * lambda)
+      varian
  
     ```
+    - Hasil 5c yaitu sebagai berikut:
+     <img width="1680" alt="Screen Shot 2022-04-10 at 15 57 04" src="https://user-images.githubusercontent.com/86004023/162610683-3bfa0763-3381-47d9-a926-b66bea057735.png">
+
        
  <br />
  
