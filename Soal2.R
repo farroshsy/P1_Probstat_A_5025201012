@@ -1,34 +1,40 @@
 # Poin 2a
-# Diketahui size = 20 pasien, prob = 0.2, x = pasien
-dbinom(x = 4, size = 20, prob = 0.2)
+  n = 4
+  sample_space = 20
+  peluang_sembuh = 0.2
+  peluang_tidak_sembuh = 1 - peluang_sembuh
+
+  dbinom(x = n, s = sample_space, prob = peluang_sembuh)
 
 # Poin 2b
-# Gambarkan grafik histogram berdasarkan kasus tersebut.
-# Inisialiasi
+
 x <- 3
-p <- 0.2
-prob <- dbinom(x = 0:10, size = 20, prob = 0.2)
+sample_space = 20
+peluang_sembuh <- 0.2
+prob <- dbinom(x = 0:10, s = sample_space, prob = peluang_sembuh)
 
 # %>% digunakan untuk memberikan nilai operator sehingga menjadi format X > Y > Z
-library(dplyr)
+library(magrittr)
 library(ggplot2)
+library(tidyverse)
 
-data.frame(heads = 0:10, prob) %>%
-  mutate(Heads = ifelse(heads == 4, "4", "lainnya")) %>%
-  ggplot(aes(x = factor(heads), y = prob, fill = Heads)) +
+data.frame(x = 0:10, prob) %>%
+  mutate(Sembuh = ifelse(x == 4, "4", "lainnya")) %>%
+  ggplot(aes(x = factor(x), y = prob, fill = Sembuh)) +
   geom_col(colour = "black") +
   scale_fill_manual(values = c("#6BCB77", "#FF6B6B")) +
   geom_text(aes(label = round(prob, 2), y = prob + 0.01)) +
-  labs(title = "Peluang jika X = 4 pasien sembuh.", x = "Sukses (x)", y = "Peluang") 
+  labs(title = "Peluang jika X = 4 Pasien Sembuh", x = "Sukses(x)", y = "Peluang") 
 
 # Poin 2c
-# Inisialiasi
-n <- 20
-p <- 0.2
-# Mencari nilai rata-rata
-mean <- n * p
-paste("Rataan: ", mean)
-# Mencari nilai varian
-var <- n * p * (1 - p)
-paste("Varian: ", var)
+n = 20
+peluang_sembuh = 0.2
+peluang_tidak_sembuh = 1 - peluang_sembuh
+
+rataan = n * (p = peluang_sembuh)
+cat("rataan = ", rataan, "\n")
+var = n * (p = peluang_sembuh) * (q = peluang_tidak_sembuh)
+cat("varian = ", var, "\n")
+
+
 
