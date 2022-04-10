@@ -14,37 +14,77 @@ Praktikum Probabilitas dan Statistik 2022 Modul 1 (Distribusi Probabilitas)
   - A. Berapa peluang penyurvei bertemu x = 3 orang yang tidak menghadiri acara vaksinasi sebelum keberhasilan pertama ketika p = 0.20 dari populasi menghadiri acara vaksinasi? (distribusi Geometrik)
 
       ```R
-    # 1a
+    # Poin 1a
+    prob = 0.2
+    x = 3
+    P <- dgeom(x, prob)
+    P
  
        ```
+       - Hasil 1a yaitu sebagai berikut:
+            <img width="1680" alt="Screen Shot 2022-04-10 at 12 42 26" src="https://user-images.githubusercontent.com/86004023/162603220-ff5cc81a-2476-496c-b638-af7bcbb7bc18.png">
+
 
   - B.  mean Distribusi Geometrik dengan 10000 data random , prob = 0,20 dimana distribusi geometrik acak tersebut X = 3 ( distribusi geometrik acak () == 3 )
 
      ```R
-    # 1b
- 
+    # Poin 1b
+      mean(rgeom(n = 10000, prob = p) == 3)
+      mean
+
        ```
+       - Hasil 1b yaitu sebagai berikut:
+        <img width="1680" alt="Screen Shot 2022-04-10 at 12 47 21" src="https://user-images.githubusercontent.com/86004023/162604090-d9445b65-12bf-4b68-8020-cd54db4b8635.png">
 
   - C. Bandingkan Hasil poin a dan b , apa kesimpulan yang bisa didapatkan?
 
-     ```R
-    # 1c
- 
-       ```
+    Hasil dari perhitungan a dan b tidak terlalu jauh, bedanya kalau a itu nilainya tetap
+    sedangkan kalau b itu hasilnya random, besar kecil nilainya ditentukan oleh X
        
   - D. Histogram Distribusi Geometrik , Peluang X = 3 gagal Sebelum Sukses Pertama
 
      ```R
-    # 1d
+    # Poin 1d
+      library(magrittr)
+      library(ggplot2)
+      library(tidyverse)
+
+      # %>% digunakan untuk memberikan nilai operator sehingga menjadi format X > Y > Z
+      data.frame(x = 0:10, prob = dgeom(x = 0:10, prob = p)) %>%
+       mutate(Failures = ifelse(x == n, n, "lainnya")) %>%
+       ggplot(aes(x = factor(x), y = prob, fill = Failures)) +
+       geom_col(colour = "black") +
+       scale_fill_manual(values = c("#6BCB77", "#FF6B6B")) +
+       geom_text(
+         aes(label = round(prob,2), y = prob - 0.01),
+         position = position_dodge(0.9),
+         size = 3,
+         vjust = 0
+       ) +
+       labs(title = "Histogram Distribusi Geometrik 
+          Peluang X = 3 Gagal Sebelum Sukses Pertama",
+            subtitle = "Geometric(.2)",
+            x = "Kegagalan sebelum sukses yang pertama (x)",
+            y = "Peluang") 
  
        ```
-       
+       - Hasil 1d yaitu sebagai berikut:          
+          <img width="1680" alt="Screen Shot 2022-04-10 at 13 27 36" src="https://user-images.githubusercontent.com/86004023/162605454-2278556a-32c6-4902-83c3-265b8627bc4e.png">
+     
   - E. Nilai Rataan (μ) dan Varian (σ2) dari Distribusi Geometrik.
 
      ```R
-    # 1e
- 
+    # Poin 1e
+      mean = n / (prob = p)
+      paste("Rataan: ", mean)
+      var = (n - (prob = p)) / ('^'((prob = p), 2))
+      paste("Varian: ", var)
+
        ```
+    - Hasil 1e yaitu sebagai berikut:          
+       <img width="1680" alt="Screen Shot 2022-04-10 at 13 32 26" src="https://user-images.githubusercontent.com/86004023/162605651-a31daa3f-1057-4ef5-a106-96e7d07a5a01.png">
+
+       
   <br />
 
 ## Soal 2
