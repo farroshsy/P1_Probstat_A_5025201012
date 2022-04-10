@@ -13,20 +13,3 @@ rataan <- d
 rataan
 varian <- 2 * d
 varian
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
