@@ -93,24 +93,62 @@ Praktikum Probabilitas dan Statistik 2022 Modul 1 (Distribusi Probabilitas)
  
        ``` R
      # 2a
+      n = 4
+      sample_space = 20
+      peluang_sembuh = 0.2
+      peluang_tidak_sembuh = 1 - peluang_sembuh
+
+      dbinom(x = n, s = samplespace, prob = peluang_sembuh)
  
        ```
-        
+      - Hasil 2a yaitu sebagai berikut:
+        <img width="1680" alt="Screen Shot 2022-04-10 at 14 55 01" src="https://user-images.githubusercontent.com/86004023/162608430-73a87868-c2c3-4c8a-a32f-03556557e0dc.png">
+
        
   - B. Gambarkan grafik histogram berdasarkan kasus tersebut.
 
       ```R
      # 2b
+     x <- 3
+     sample_space = 20
+     peluang_sembuh <- 0.2
+     prob <- dbinom(x = 0:10, s = sample_space, prob = peluang_sembuh)
+
+      # %>% digunakan untuk memberikan nilai operator sehingga menjadi format X > Y > Z
+      library(magrittr)
+      library(ggplot2)
+      library(tidyverse)
+
+      data.frame(x = 0:10, prob) %>%
+       mutate(Sembuh = ifelse(x == 4, "4", "lainnya")) %>%
+       ggplot(aes(x = factor(x), y = prob, fill = Sembuh)) +
+       geom_col(colour = "black") +
+       scale_fill_manual(values = c("#6BCB77", "#FF6B6B")) +
+       geom_text(aes(label = round(prob, 2), y = prob + 0.01)) +
+       labs(title = "Peluang jika X = 4 Pasien Sembuh", x = "Sukses(x)", y = "Peluang") 
  
        ```
-       
+      - Hasil 2b yaitu sebagai berikut:
+         <img width="1680" alt="Screen Shot 2022-04-10 at 14 56 06" src="https://user-images.githubusercontent.com/86004023/162608461-ea082fa3-15f6-45f2-bcdb-55901f60e7e9.png">
+
+
   - C. Nilai Rataan (μ) dan Varian (σ2) dari Distribusi Binomial.
 
        ```R
       # 2c
+      n = 20
+      peluang_sembuh = 0.2
+      peluang_tidak_sembuh = 1 - peluang_sembuh
+
+      rataan = n * (p = peluang_sembuh)
+      cat("rataan = ", rataan, "\n")
+      var = n * (p = peluang_sembuh) * (q = peluang_tidak_sembuh)
+      cat("varian = ", var, "\n")
  
        ```
-       
+       - Hasil 2c yaitu sebagai berikut:
+         <img width="1680" alt="Screen Shot 2022-04-10 at 14 58 28" src="https://user-images.githubusercontent.com/86004023/162608528-87429c74-19bb-44ec-ba5d-c01ad8408dae.png">
+
  <br />
  
 ## Soal 3
