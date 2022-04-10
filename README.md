@@ -158,30 +158,64 @@ Praktikum Probabilitas dan Statistik 2022 Modul 1 (Distribusi Probabilitas)
   
       ```R
     # 3a
- 
+      bayi_lahir = 6
+      rata_rata_bayi_lahir = 4.5
+      dpois(bayi_lahir, rata_rata_bayi_lahir)
+
        ```
+       - Hasil 3a yaitu sebagai berikut:
+       <img width="1680" alt="Screen Shot 2022-04-10 at 15 28 27" src="https://user-images.githubusercontent.com/86004023/162609726-a0126a43-572c-4a4b-873b-377ad7941269.png">
+
 
   - B.  simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama
 setahun (n = 365)
+    
+           ```R
+          # 3b
+          n = 365
+          rata_rata_bayi_lahir = 4.5
+          set.seed(2)
+          babies <- data.frame('data' = rpois(n, rata_rata_bayi_lahir))
 
-     ```R
-    # 3b
- 
-       ```
+            babies %>% ggplot() +
+            geom_histogram(aes(x = data, y = stat(count / sum(count)), fill = data == 6), binwidth = 1, color =   'black',) +
+           scale_fill_manual(values = c("#6BCB77", "#FF6B6B")) +
+           scale_x_continuous(breaks = 0:10) +
+           labs(x = 'Jumlah bayi lahir per periode', y = 'Proporsi', title = 'Simulasi kelahiran selama setahun (n = 365)') +
+            theme_bw()
+
+             ```
+           
+            
+   -  - Hasil 3b yaitu sebagai berikut:
+     <img width="1680" alt="Screen Shot 2022-04-10 at 15 30 36" src="https://user-images.githubusercontent.com/86004023/162609802-c19cc71f-d757-4e64-98ac-adfdf9d57b6c.png">
+
+
 
   - C. dan bandingkan hasil poin a dan b , Apa kesimpulan yang bisa didapatkan
 
-     ```R
-    # 3c
- 
-       ```
+     Perbandingan poin a dan poin b kurang lebih sama karena nilai proporsi yang didapatkan di poin A 
+     berada dalam range proporsi yang ada di poin B yaitu 0.10-0.15. Oleh karena itu, pengaruh perhitungan 
+     dengan estimasi selama 365 hari memberikan hasil yang mendekati dengan peluang bayi akan dilahirkan keesokan      harinya
+
        
   - D. Nilai Rataan (μ) dan Varian (σ2) dari Distribusi Poisson.
 
      ```R
     # 3d
+    bayi_lahir = 6
+    l <- bayi_lahir
+
+    rataan <- l
+    rataan
+    varian <- l
+    varian
  
        ```
+       - Hasil 3d yaitu sebagai berikut:
+       <img width="1680" alt="Screen Shot 2022-04-10 at 15 37 06" src="https://user-images.githubusercontent.com/86004023/162609978-d44136e1-4cfe-4fdb-9d01-77239e432a3e.png">
+
+       
 <br />
 
 ## Soal 4
