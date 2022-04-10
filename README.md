@@ -400,4 +400,11 @@ data generate randomnya dalam bentuk grafik. Petunjuk(gunakan fungsi plot()).
  <br />
  
 # Referensi :
-  - 
+  - https://mse.redwoods.edu/darnold/math15/spring2013/R/Activities/MeanVarStd.html
+  - https://rpubs.com/mpfoley73/458721 -> Distribusi Geometrik
+  - https://rpubs.com/mpfoley73/458411 -> Distribusi Binomial
+  - https://rpubs.com/mpfoley73/456645 -> Distribusi Poisson
+  - https://bookdown.org/gabriel_butler/ECON41Labs/tutorial-5-the-poisson-distribution.html -> Distribusi Poisson
+  - https://rpubs.com/mpfoley73/460935 -> Distribusi Chi-Square
+  - https://rpubs.com/mpfoley73/459040 -> Distribusi Exponensial
+  - https://bookdown.org/rdpeng/rprogdatascience/simulation.html -> Distribusi Normal
